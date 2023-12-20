@@ -32,7 +32,7 @@ public class Doomed_Dice2 {
         System.out.printf("Number of new valid combinations : %d\n", count);
     }
 
-    // Running thorugh all the possible values of Die A
+    // Running thorugh all the possible values of Die A through recurssion
     private static void conf_A(int[] new_die_A, int indexA) {
         if (indexA == 5) {
             // The smallest and the largest sum are 2 and 12 respectively
@@ -48,7 +48,7 @@ public class Doomed_Dice2 {
         }
     }
 
-    // Running thorugh all the possible values of Die B
+    // Running thorugh all the possible values of Die B through recurssion
     private static void conf_B(int[] new_die_A, int[] new_die_B, int index) {
         if (index == 5) {
             // Function call to check for the combinations
