@@ -8,7 +8,7 @@ class Doomed_Dice1 {
 
         /*
          * The total number of combinations is the product of the possibile outcomes
-         * of each dice
+         * of each die
          */
         System.out.printf("\n## ## Total Combinations : %d ## ## \n", A.length * B.length);
 
