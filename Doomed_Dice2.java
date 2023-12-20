@@ -23,22 +23,23 @@ public class Doomed_Dice2 {
                 freq.put(sum, freq.getOrDefault(sum, 0) + 1);
             }
         }
+        
         // The smallest and the largest sum are 2 and 12 respectively
         // The dice arrays must have 1,4 and 1,8 at their ends
-        // Sice the maximum number of dots on a face of Die a is 4
-        // So the numbers 1 and 4 must be presnt in the ends of die A
+        // Since the maximum number of dots on a face of Die a is 4
+        // So the numbers 1 and 4 must be present at the two ends of die A
         int new_die_A[] = { 1, 0, 0, 0, 0, 4 };
         conf_A(new_die_A, 1);
         System.out.printf("Number of new valid combinations : %d\n", count);
     }
 
-    // Running thorugh all the possible values of Die A through recurssion
+    // Running through all the possible values of Die A through recursion
     private static void conf_A(int[] new_die_A, int indexA) {
         if (indexA == 5) {
-            // The smallest and the largest sum are 2 and 12 respectively
+            // The smallest and the largest sums are 2 and 12 respectively
             // The dice arrays must have 1,4 and 1,8 at their ends
-            // Sice the maximum number of dots on a face of Die B is not limited
-            // So the numbers 1 and 8 must be presnt in the ends of die B
+            // Since the maximum number of dots on a face of Die B is not limited(but anything over 8 will produce results greater than 12)
+            // So the numbers 1 and 8 must be present in the ends of die B
             conf_B(new_die_A, new int[] { 1, 0, 0, 0, 0, 8 }, 1);
             return;
         }
@@ -48,7 +49,7 @@ public class Doomed_Dice2 {
         }
     }
 
-    // Running thorugh all the possible values of Die B through recurssion
+    // Running through all the possible values of Die B through recursion
     private static void conf_B(int[] new_die_A, int[] new_die_B, int index) {
         if (index == 5) {
             // Function call to check for the combinations
@@ -61,8 +62,9 @@ public class Doomed_Dice2 {
         }
     }
 
-    // The functions is to calculate and compare the combination of the new Dice
+    // This function is to calculate and compare the combination of the new Dice
     private static void checkCombination(int[] new_die_A, int[] new_die_B) {
+        //clearing new_freq hashmap to remove previous values
         new_freq.clear();
 
         for (int i : new_die_A) {
@@ -70,7 +72,7 @@ public class Doomed_Dice2 {
                 new_freq.put(i + j, new_freq.getOrDefault(i + j, 0) + 1);
             }
         }
-
+// the new set of dice is valid if new_freq matches the freq hashmap 
         if (new_freq.equals(freq)) {
             count++;
             System.out.println("## Valid combination ##");
