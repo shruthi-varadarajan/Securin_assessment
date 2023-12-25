@@ -66,14 +66,21 @@ public class Doomed_Dice2 {
     private static void checkCombination(int[] new_die_A, int[] new_die_B) {
         //clearing new_freq hashmap to remove previous values
         new_freq.clear();
-
+boolean flag = true;
         for (int i : new_die_A) {
             for (int j : new_die_B) {
                 new_freq.put(i + j, new_freq.getOrDefault(i + j, 0) + 1);
+                if(new_freq.get(i+j)>freq.getOrDefault(i+j,0)){
+                    flag=false;
+                    break;
+                }
+            }
+            if(!flag){
+                break;
             }
         }
 // the new set of dice is valid if new_freq matches the freq hashmap 
-        if (new_freq.equals(freq)) {
+        if (flag) {
             count++;
             System.out.println("## Valid combination ##");
             System.out.print("New_dice_A : ");
