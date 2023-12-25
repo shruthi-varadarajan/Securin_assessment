@@ -66,7 +66,7 @@ public class Doomed_Dice2 {
     private static void checkCombination(int[] new_die_A, int[] new_die_B) {
         //clearing new_freq hashmap to remove previous values
         new_freq.clear();
-boolean flag = true;
+        boolean flag = true;
         for (int i : new_die_A) {
             for (int j : new_die_B) {
                 new_freq.put(i + j, new_freq.getOrDefault(i + j, 0) + 1);
